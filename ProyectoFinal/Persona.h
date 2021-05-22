@@ -5,14 +5,14 @@ using namespace std;
 class Persona{
 
 //Atributos de clase Persona
-protected: int id;
-		 string nombres, apellidos, telefono, fechaingreso;
+protected: 
+		 string nombres, apellidos, telefono, fechaingreso,id;
 		 char genero;
 
 //constructor
 protected:
 	Persona(){}
-	Persona(string nombres, string apellidos, string telefono, string fechaingreso, int id, char genero) {
+	Persona(string nombres, string apellidos, string telefono, string fechaingreso, string id, char genero) {
 		this->nombres = nombres;
 		this->apellidos = apellidos;
 		this->telefono = telefono;

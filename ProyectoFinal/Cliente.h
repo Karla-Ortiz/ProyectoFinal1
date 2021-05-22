@@ -1,4 +1,5 @@
 #pragma once
+#include "ConexionDB.h"
 #include "Persona.h"
 using namespace std;
 
@@ -11,63 +12,99 @@ private: string nit, email;
 public: 
 	Cliente(){}
 	Cliente(string nit, string email, string nombres, string apellidos, 
-		string telefono, string fechaingreso, int id, char genero) : 
+		string telefono, string fechaingreso, string id, char genero) : 
 		Persona(nombres, apellidos, telefono, fechaingreso,id,genero){
 		this->nit = nit;
 		this->email = email;
 	}
 
-	//Métodos setter
-	void setNit(string n) {
-		nit = n;
-	}
-	void setEmail(string em) {
-		email = em;
-	}
-	void setNombres(string nom) {
-		nombres = nom;
-	}
-	void setApellidos(string ape) {
-		apellidos = ape;
-	}
-	void setTelefono(string tel) {
-		telefono =  tel;
-	}
-	void setFechaing(string fechin) {
-		fechaingreso = fechin;
-	}
-	void setId(int idCliente) {
-		id = idCliente;
-	}
-	void setGenero(char gen) {
-		genero = gen;
+	void dataClientes() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "SELECT * FROM CLIENTES";
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+
+				while (fila = mysql_fetch_row(res)) {
+					cout << fila[0] << "," << fila[1] << endl;
+				}
+			}
+		}
+		else {
+			cout << " -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
 	}
 
+	void crearCliente() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "INSERT INTO CLIENTES(nombres,apellidos,nit,genero,telefono,correo_electronico,fechaingreso) VALUES ('" + nombres + "','"+apellidos+"','"+nit+"',"+genero+",'"
+				+telefono+"','"+email+"',NOW())";
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Ingreso exitoso ---" << endl;
+			}
+			else {
+				cout << " --- Error al ingresar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
+	}
 
-	//Metodos getter
-	string getNit() {
-		return nit;
+	void modificarCliente() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "UPDATE CLIENTES SET nombres='" + nombres + "',apellidos='"+apellidos+"',nit='"+nit+"',genero="+genero+",telefono='"+telefono+"',correo_electronico='"
+				+email+"',fechaingreso=NOW() WHERE idCliente=" + id;
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Modificacion exitoso ---" << endl;
+			}
+			else {
+				cout << " --- Error al modificar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
 	}
-	string getEmail() {
-		return email;
-	}
-	string getNombres() {
-		return nombres;
-	}
-	string getApellidos() {
-		return apellidos;
-	}
-	string getTelefono() {
-		return telefono;
-	}
-	string getFechaing() {
-		return fechaingreso;
-	}
-	int getIdcliente() {
-		return id;
-	}
-	char getGenero() {
-		return genero;
+
+	void eliminarCliente() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "DELETE FROM CLIENTES WHERE idCliente=" + id;
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Eliminacion exitosa ---" << endl;
+			}
+			else {
+				cout << " --- Error al eliminar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
 	}
 };
 

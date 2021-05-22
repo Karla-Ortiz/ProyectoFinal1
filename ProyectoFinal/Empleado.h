@@ -1,91 +1,112 @@
 #pragma once
+#include "ConexionDB.h"
 #include "Persona.h"
 class Empleado : Persona{
 
 //Atributos de clase Empleado
-private: string direccion, dpi, fechanac, puesto, fechainilab;
+private: string direccion, dpi, fechanac, puesto, fechainilab, email;
 
 //Constructor
 public:
 	Empleado(){}
 	Empleado(string direccion, string dpi, string fechanac, string puesto, string fechainilab,
-		string nombres, string apellidos, string telefono, string fechaingreso, int id, char genero) 
+		string nombres, string apellidos, string telefono, string fechaingreso, string id, char genero,string email) 
 		: Persona(nombres, apellidos, telefono, fechaingreso, id, genero){
 		this->direccion = direccion;
 		this->dpi = dpi;
 		this->fechanac = fechanac;
 		this->puesto = puesto;
 		this->fechainilab = fechainilab;
+		this->email = email;
 	}
 
-	//Metodos setter
-	void setDireccion(string dir) {
-		direccion = dir;
-	}
-	void setDpi(string dato) {
-		dpi = dato;
-	}
-	void setFechanac(string fn) {
-		fechanac = fn;
-	}
-	void setPuesto(string pues) {
-		puesto = pues;
-	}
-	void setFechaIniLab(string fechil) {
-		fechainilab = fechil;
-	}
-	void setNombres(string nom) {
-		nombres = nom;
-	}
-	void setApellidos(string ape) {
-		apellidos = ape;
-	}
-	void setTelefono(string tel) {
-		telefono = tel;
-	}
-	void setFechaing(string fechin) {
-		fechaingreso = fechin;
-	}
-	void setId(int idCliente) {
-		id = idCliente;
-	}
-	void setGenero(char gen) {
-		genero = gen;
+	void dataEmpleados() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "select E.idEmpleado, E.nombres, E.apellidos, E.direccion, E.DPI,E.genero,E.telefono, E.fecha_nacimiento, P.puesto,E.correo_electronico,E.fecha_inicio_labores, E.fechaingreso from empleados E INNER JOIN PUESTOS P ON E.idPuesto = P.idPuesto";
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+
+				while (fila = mysql_fetch_row(res)) {
+					cout << fila[0] << "," << fila[1] << endl;
+				}
+			}
+		}
+		else {
+			cout << " -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
 	}
 
-	//Metodos getter
-	string getDireccion() {
-		return direccion;
+	void crearEmpleado() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "INSERT INTO EMPLEADOS(nombres, apellidos,direccion,DPI,genero,telefono,fecha_nacimiento,puesto,correo_electronico,fecha_inicio_labores,fechaingreso) VALUES ('"
+				+ nombres + "','"+apellidos+"','"+direccion+"','"+dpi+"','"+genero+"','"+telefono+"','"+fechanac+"','"+puesto+"','"+email+"','"+fechainilab+"',NOW())";
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Ingreso exitoso ---" << endl;
+			}
+			else {
+				cout << " --- Error al ingresar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
 	}
-	string getDpi() {
-		return dpi;
+
+	void modificarEmpleado() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "UPDATE EMPLEADOS SET nombres='" + nombres + "',apellidos='"+apellidos+"',direccion='"+direccion+"',DPI='"+dpi+"',genero="+genero+",telefono='"
+				+telefono+"',fecha_nacimiento='"+fechanac+"',puesto="+puesto+",correo_electronico='"+email+"',fecha_inicio_labores='"+fechainilab+"',fechaingreso=NOW() WHERE idEmpleado=" + id;
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Modificacion exitoso ---" << endl;
+			}
+			else {
+				cout << " --- Error al modificar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
 	}
-	string getFechanac() {
-		return fechanac;
-	}
-	string getPuesto() {
-		return puesto;
-	}
-	string getFechainilab() {
-		return fechainilab;
-	}
-	string getNombres() {
-		return nombres;
-	}
-	string getApellidos() {
-		return apellidos;
-	}
-	string getTelefono() {
-		return telefono;
-	}
-	string getFechaing() {
-		return fechaingreso;
-	}
-	int getIdcliente() {
-		return id;
-	}
-	char getGenero() {
-		return genero;
+
+	void eliminarEmpleado() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "DELETE FROM EMPLEADOS WHERE idEmpleado=" + id;
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				cout << " --- Eliminacion exitosa ---" << endl;
+			}
+			else {
+				cout << " --- Error al eliminar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << " --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
 	}
 };
 
