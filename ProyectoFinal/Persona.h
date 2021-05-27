@@ -7,7 +7,7 @@ class Persona{
 //Atributos de clase Persona
 protected: 
 		 string nombres, apellidos, telefono, fechaingreso,id;
-		 char genero;
+		 char genero=' ';
 
 //constructor
 protected:

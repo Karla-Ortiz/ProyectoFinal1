@@ -32,9 +32,10 @@ public:
 			q_estado = mysql_query(con.getConectar(), c);
 			if (!q_estado) {
 				res = mysql_store_result(con.getConectar());
-
+				cout << "\n\n\t**************** EMPLEADOS *******************" << endl;
+				cout << "\tID | NOMBRES  |  APELLIDOS   |  DIRECCION  | DPI     | GENERO | TELEFONO | FECHA NACIMIENTO | PUESTO   | EMAIL    | FECHA INICIO LABORES | FECHA INGRESO\n" << endl;
 				while (fila = mysql_fetch_row(res)) {
-					cout << fila[0] << "," << fila[1] << endl;
+					cout << "\t" << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " <<fila[3] << " | " <<fila[4] << " | " <<fila[5] << " | " <<fila[6] << " | " <<fila[7] << " | " <<fila[8] << " | " <<fila[9] << " | " <<fila[10] << " | " <<fila[11] << endl;
 				}
 			}
 		}

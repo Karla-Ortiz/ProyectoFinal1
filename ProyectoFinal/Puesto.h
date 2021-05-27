@@ -28,9 +28,10 @@ public:
 			q_estado = mysql_query(con.getConectar(), c);
 			if (!q_estado) {
 				res = mysql_store_result(con.getConectar());
-
+				cout << "\n\n\t**************** PUESTOS *******************" << endl;
+				cout << "\tID    |  PUESTO\n" << endl;
 				while (fila = mysql_fetch_row(res)) {
-					cout << fila[0] << "," << fila[1] << endl;
+					cout << "\t" << fila[0] << " | " << fila[1] << endl;
 				}
 			}
 		}

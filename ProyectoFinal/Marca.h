@@ -28,9 +28,10 @@ public:
 			q_estado = mysql_query(con.getConectar(), c);
 			if (!q_estado) {
 				res = mysql_store_result(con.getConectar());
-
+				cout << "\n\n\t**************** MARCAS *******************" << endl;
+				cout << "\t\ID    |  MARCA\n" << endl;
 				while (fila = mysql_fetch_row(res)) {
-					cout << fila[0] << " | " << fila[1] << endl;
+					cout << "\t" << fila[0] << " | " << fila[1] << endl;
 				}
 			}
 		}
@@ -42,6 +43,8 @@ public:
 
 	void crearMarca() {
 		int q_estado;
+		cout << "\tIngrese la marca: ";
+		getline(cin, marca);
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
@@ -49,14 +52,14 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Ingreso exitoso ---" << endl;
+				cout << "\n\n\t --- Ingreso exitoso ---" << endl;
 			}
 			else {
-				cout << " --- Error al ingresar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al ingresar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}

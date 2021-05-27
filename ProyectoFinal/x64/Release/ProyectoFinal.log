@@ -1,18 +1,9 @@
 ﻿  Cliente.cpp
-  Compra.cpp
-  ConexionDB.cpp
-  Detalle.cpp
-  Empleado.cpp
-  Marca.cpp
-  Persona.cpp
-  Producto.cpp
-  Proveedor.cpp
   ProyectoFinal.cpp
-  Puesto.cpp
-  Venta.cpp
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Marca.h(32,13): warning C4129: 'I': secuencia de escape de carácter no reconocida
   Generando código
-  0 of 10 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 181 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   ProyectoFinal.vcxproj -> C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\x64\Release\ProyectoFinal.exe
