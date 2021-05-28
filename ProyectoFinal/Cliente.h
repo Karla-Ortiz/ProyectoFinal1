@@ -48,15 +48,17 @@ public:
 			}
 		}
 		else {
-			cout << " -- Error en conexion --" << endl;
+			cout << "\n\n\t -- Error en conexion --" << endl;
 		}
 		con.cerrarConexion();
 	}
 
 	void crearCliente() {
 		int q_estado;
+		cin.ignore();
 		cout << "\tIngrese nombres: ";
 		getline(cin, nombres);
+		cin.ignore();
 		cout << "\tIngrese apellidos: ";
 		getline(cin, apellidos);
 		cout << "\tIngrese nit: ";
@@ -75,14 +77,14 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << "\t\n\n --- Ingreso exitoso ---" << endl;
+				cout << "\n\n\t --- Ingreso exitoso ---" << endl;
 			}
 			else {
-				cout << "\t\n\n --- Error al ingresar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al ingresar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << "\t\n\n --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}

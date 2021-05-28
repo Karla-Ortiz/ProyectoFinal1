@@ -102,11 +102,12 @@ int main()
 void moduloPuestos() {
     Puesto p = Puesto();
     int opc = 0;
-    char stop = 's';
+    char stop;
     while (opc != 5) {
         opc = mostrarMenu("PUESTOS", "puestos");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO PUESTOS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
@@ -249,6 +250,13 @@ void moduloMarcas() {
             pausa();
             break;
         case 3: system("cls");
+            cout << "\n\n\tMODIFICACION MARCAS\n" << endl;
+            cout << "\t-------------------------\n" << endl;
+            while (stop != 'n') {
+                m.modificarMarca();
+                cout << "\n\n\n\tDesea modificar otra marca (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
@@ -262,11 +270,12 @@ void moduloMarcas() {
 void moduloProveedores() {
     Proveedor p = Proveedor();
     int opc = 0;
-    char stop = 's';
+    char stop;
     while (opc != 5) {
         opc = mostrarMenu("PROVEEDORES", "proveedores");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO PROVEEDORES\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
@@ -281,9 +290,25 @@ void moduloProveedores() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICACION PROVEEDORES\n" << endl;
+            cout << "\t-------------------------\n" << endl;
+            while (stop != 'n') {
+                p.modificarProveedor();
+                cout << "\n\n\n\tDesea modificar otro proveedor (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINACION PROVEEDORES\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                p.eliminarProveedor();
+                cout << "\n\n\n\tDesea eliminar otro proveedor (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }

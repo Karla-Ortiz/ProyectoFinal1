@@ -52,12 +52,14 @@ public:
 	void crearProducto() {
 		Marca m = Marca();
 		int q_estado;
+		cin.ignore();
 		cout << "\tIngrese producto: ";
 		getline(cin, prod);
 		cout << "\n\n";
 		m.dataMarcas();
 		cout << "\n\tIngrese el id de una marca: ";
 		cin >> marca;
+		cin.ignore();
 		cout << "\tIngrese descripcion: ";
 		getline(cin, desc);
 		cout << "\tIngrese precio costo: ";

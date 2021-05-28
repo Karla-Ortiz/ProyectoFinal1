@@ -40,7 +40,7 @@ public:
 			}
 		}
 		else {
-			cout << " -- Error en conexion --" << endl;
+			cout << "\n\n\t -- Error en conexion --" << endl;
 		}
 		con.cerrarConexion();
 	}
@@ -55,14 +55,14 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Ingreso exitoso ---" << endl;
+				cout << "\n\n\t --- Ingreso exitoso ---" << endl;
 			}
 			else {
-				cout << " --- Error al ingresar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al ingresar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}

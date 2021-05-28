@@ -1,5 +1,6 @@
 #pragma once
 #include "ConexionDB.h"
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -29,20 +30,21 @@ public:
 			if (!q_estado) {
 				res = mysql_store_result(con.getConectar());
 				cout << "\n\n\t**************** MARCAS *******************" << endl;
-				cout << "\t\ID    |  MARCA\n" << endl;
+				cout << "\tID    |  MARCA\n" << endl;
 				while (fila = mysql_fetch_row(res)) {
 					cout << "\t" << fila[0] << " | " << fila[1] << endl;
 				}
 			}
 		}
 		else {
-			cout << " -- Error en conexion --" << endl;
+			cout << "\n\n\t -- Error en conexion --" << endl;
 		}
 		con.cerrarConexion();
 	}
 
 	void crearMarca() {
 		int q_estado;
+		cin.ignore();
 		cout << "\tIngrese la marca: ";
 		getline(cin, marca);
 		ConexionDB con = ConexionDB();
@@ -73,14 +75,14 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Modificacion exitoso ---" << endl;
+				cout << "\n\n\t --- Modificacion exitoso ---" << endl;
 			}
 			else {
-				cout << " --- Error al modificar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al modificar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}
@@ -94,14 +96,41 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Eliminacion exitosa ---" << endl;
+				cout << "\n\n\t --- Eliminacion exitosa ---" << endl;
 			}
 			else {
-				cout << " --- Error al eliminar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al eliminar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
+	}
+
+	void visualizarMarca() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "SELECT * FROM MARCAS";
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+				cout << "\n\n\t**************** MARCAS *******************" << endl;
+				cout << "\tID    |  MARCA\n" << endl;
+				while (fila = mysql_fetch_row(res)) {
+					cout << "\t" << fila[0] << " | " << fila[1] << endl;
+					id = (string)fila[0];
+					marca = fila[1];
+				}
+			}
+		}
+		else {
+			cout << "\n\n\t -- Error en conexion --" << endl;
 		}
 		con.cerrarConexion();
 	}
