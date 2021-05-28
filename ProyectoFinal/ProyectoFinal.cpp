@@ -236,6 +236,7 @@ void moduloMarcas() {
         opc = mostrarMenu("MARCAS", "marcas");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO MARCAS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
@@ -250,6 +251,7 @@ void moduloMarcas() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
             cout << "\n\n\tMODIFICACION MARCAS\n" << endl;
             cout << "\t-------------------------\n" << endl;
             while (stop != 'n') {
@@ -260,6 +262,14 @@ void moduloMarcas() {
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINACION MARCAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                m.eliminarMarca();
+                cout << "\n\n\n\tDesea eliminar otra marca (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }

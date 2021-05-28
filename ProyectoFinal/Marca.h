@@ -68,6 +68,12 @@ public:
 
 	void modificarMarca() {
 		int q_estado;
+		cout << "\tIngrese el id del proveedor que desea modificar: ";
+		cin >> id;
+		visualizarMarca();
+		cin.ignore();
+		cout << "\n\tIngrese marca: ";
+		getline(cin, marca);
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
@@ -87,7 +93,7 @@ public:
 		con.cerrarConexion();
 	}
 
-	void eliminarMarca() {
+	void deleteMarca() {
 		int q_estado;
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
@@ -108,6 +114,21 @@ public:
 		con.cerrarConexion();
 	}
 
+	void eliminarMarca() {
+		char conf;
+		cout << "\tIngrese el id de la marca a eliminar: ";
+		cin >> id;
+		visualizarMarca();
+		cout << "\n\tSeguro que desea eliminar el registro. Esta operacion no se puede revertir (SI = s / No = n): ";
+		cin >> conf;
+		if (conf == 's') {
+			deleteMarca();
+		}
+		else {
+			cout << "\n\tRegisto no eliminado" << endl;;
+		}
+	}
+
 	void visualizarMarca() {
 		int q_estado;
 		ConexionDB con = ConexionDB();
@@ -115,7 +136,7 @@ public:
 		MYSQL_RES* res;
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "SELECT * FROM MARCAS";
+			string query = "SELECT * FROM MARCAS where IDMARCA=" + id;
 			const char* c = query.c_str();
 			q_estado = mysql_query(con.getConectar(), c);
 			if (!q_estado) {
