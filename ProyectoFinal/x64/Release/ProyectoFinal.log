@@ -1,9 +1,10 @@
-﻿  Marca.cpp
-  Producto.cpp
+﻿  Cliente.cpp
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Cliente.h(216,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'char'
   ProyectoFinal.cpp
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Cliente.h(216,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'char'
   Generando código
-  4 of 201 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
+  3 of 208 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   ProyectoFinal.vcxproj -> C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\x64\Release\ProyectoFinal.exe

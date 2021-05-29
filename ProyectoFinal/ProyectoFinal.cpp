@@ -7,6 +7,7 @@
 #include "Producto.h"
 #include "Cliente.h"
 #include "Proveedor.h"
+#include "Venta.h"
 #include <Windows.h>
 using namespace std;
 
@@ -16,6 +17,7 @@ void moduloMarcas();
 void moduloProductos();
 void moduloClientes();
 void moduloProveedores();
+void moduloVentas();
 
 int mostrarMenu(string titulo, string opciones) {
     int opcion = 0;
@@ -57,7 +59,7 @@ void pausa()
 int main()
 {
     int opc = 0;
-    while (opc != 7) {
+    while (opc != 8) {
         system("color 80");
         system("cls");
         cin.clear();
@@ -71,7 +73,8 @@ int main()
         cout << "\t\t\t\t\t4. Modulo de Productos." << endl;
         cout << "\t\t\t\t\t5. Modulo de Clientes." << endl;
         cout << "\t\t\t\t\t6. Modulo de Proveedores." << endl;
-        cout << "\t\t\t\t\t7. Salir" << endl;
+        cout << "\t\t\t\t\t7. Modulo Ventas." << endl;
+        cout << "\t\t\t\t\t8. Salir" << endl;
         cout << "\t\t\t\t\tIngrese una opcion: ";
         cin >> opc;
 
@@ -88,7 +91,9 @@ int main()
             break;
         case 6: moduloProveedores();
             break;
-        case 7: cout << "\n\n\t\t\t\t\t***********************************" << endl;
+        case 7: moduloVentas();
+            break;
+        case 8: cout << "\n\n\t\t\t\t\t***********************************" << endl;
             cout << "\t\t\t\t\t\t Regrese pronto :D\n\n" << endl;
             break;
         default: cout << "\t\t\t\t\tLa opcion ingresada no se encuentra en el menu, pruebe nuevamente" << endl;
@@ -204,6 +209,7 @@ void moduloClientes() {
         opc = mostrarMenu("CLIENTES", "clientes");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO CLIENTES\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
@@ -218,9 +224,25 @@ void moduloClientes() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICACION CLIENTES\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                c.modificarCliente();
+                cout << "\n\n\n\tDesea modificar otro cliente (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINACION CLIENTES\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                c.eliminarCliente();
+                cout << "\n\n\n\tDesea eliminar otro cliente (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }
@@ -324,6 +346,37 @@ void moduloProveedores() {
         }
     }
     barra("PROVEEDORES");
+}
+
+void moduloVentas() {
+    Venta v = Venta();
+    int opc = 0;
+    char stop;
+    while (opc != 5) {
+        opc = mostrarMenu("VENTAS", "ventas");
+        switch (opc) {
+        case 1: system("cls");
+            stop = 's';
+            cout << "\n\n\tINGRESO VENTAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                cout << "\n\n\n\tDesea ingresar otra venta (SI = s / No = n): ";
+                cin >> stop;
+            }
+            pausa();
+            break;
+        case 2: system("cls");
+            pausa();
+            break;
+        case 3: system("cls");
+            pausa();
+            break;
+        case 4: system("cls");
+            pausa();
+            break;
+        }
+    }
+    barra("VENTAS");
 }
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
 // Depurar programa: F5 o menú Depurar > Iniciar depuración
