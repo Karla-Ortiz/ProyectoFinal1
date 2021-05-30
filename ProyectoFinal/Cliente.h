@@ -21,6 +21,10 @@ public:
 		this->email = email;
 	}
 
+	string getId() {
+		return id;
+	}
+
 	void dataClientes() {
 		int q_estado;
 		ConexionDB con = ConexionDB();
@@ -49,6 +53,70 @@ public:
 		}
 		else {
 			cout << "\n\n\t -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
+	}
+
+	boolean buscarCliente(string nitc) {
+		boolean existe = false;
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "SELECT idCliente,nombres, apellidos FROM CLIENTES where nit="+nitc;
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+				while (fila = mysql_fetch_row(res)) {
+					existe = true;
+					id = fila[0];
+					nombres = fila[1];
+					apellidos = fila[2];
+				}
+			}
+		}
+		else {
+			cout << "\n\n\t -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
+		return existe;
+	}
+
+	boolean crearClienteParcial(string nitc) {
+		boolean ingreso = false;
+		int q_estado;
+		nit = nitc;
+		cin.ignore();
+		cout << "\tIngrese nombres: ";
+		getline(cin, nombres);
+		cin.ignore();
+		cout << "\tIngrese apellidos: ";
+		getline(cin, apellidos);
+		cout << "\tIngrese genero (FEMENINO = 0 / MASCULINO = 1): ";
+		cin >> genero;
+		cout << "\tIngrese telefono: ";
+		cin >> telefono;
+		cout << "\tIngrese correo electronico: ";
+		cin >> email;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "INSERT INTO CLIENTES(nombres,apellidos,nit,genero,telefono,correo_electronico,fechaingreso) VALUES ('" + nombres + "','" + apellidos + "','" + nit + "','" + genero + "','"
+				+ telefono + "','" + email + "',NOW())";
+			const char* i = query.c_str();
+			q_estado = mysql_query(con.getConectar(), i);
+			if (!q_estado) {
+				ingreso = true;
+			}
+			else {
+				cout << "\n\n\t --- Error al ingresar la informacion ---" << endl;
+			}
+		}
+		else {
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}

@@ -1,6 +1,7 @@
 // ProyectoFinal.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 //
 #include <iostream>
+#include "Detalle.h"
 #include "Puesto.h"
 #include "Empleado.h"
 #include "Marca.h"
@@ -360,18 +361,35 @@ void moduloVentas() {
             cout << "\n\n\tINGRESO VENTAS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
+                
                 cout << "\n\n\n\tDesea ingresar otra venta (SI = s / No = n): ";
                 cin >> stop;
             }
             pausa();
             break;
         case 2: system("cls");
+            v.dataVentas();
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICACION VENTAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                cout << "\n\n\n\tDesea modificar otra venta (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINACION VENTAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                //v.eliminarVenta();
+                cout << "\n\n\n\tDesea eliminar otra venta (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }

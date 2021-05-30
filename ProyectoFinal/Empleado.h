@@ -109,5 +109,29 @@ public:
 		}
 		con.cerrarConexion();
 	}
+
+	boolean empleadoValido(string idemp) {
+		boolean valido = false;
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "select idempleado from empleados where idempleado=" + idemp;
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+				while (mysql_fetch_row(res)) {
+					valido = true;
+				}
+			}
+		}
+		else {
+			cout << "\n\n\t -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
+	}
 };
 
