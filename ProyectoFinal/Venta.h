@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include "ConexionDB.h"
+#include "Empleado.h"
 #include "Detalle.h"
+#include "Cliente.h"
 #include <string>
 #include <regex>
 using namespace std;

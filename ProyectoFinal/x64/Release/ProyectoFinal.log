@@ -1,33 +1,37 @@
-﻿  Detalle.cpp
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,3): error C2065: 'Detalle': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,11): error C2146: error de sintaxis: falta ';' delante del identificador 'd'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,11): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,15): error C3861: 'Detalle': no se encontró el identificador
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(51,6): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(52,6): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+﻿  Cliente.cpp
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Cliente.h(284,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'char'
+  Detalle.cpp
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+  Proveedor.cpp
   ProyectoFinal.cpp
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,3): error C2065: 'Detalle': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,11): error C2146: error de sintaxis: falta ';' delante del identificador 'd'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,11): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(35,15): error C3861: 'Detalle': no se encontró el identificador
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(51,6): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(52,6): error C2065: 'd': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Cliente.h(243,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'char'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Empleado.h(117,13): warning C4101: 'fila': variable local sin referencia
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Cliente.h(284,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'char'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(281,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(281,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
   Venta.cpp
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(58,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(94,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(279,3): error C2065: 'Venta': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(279,9): error C2146: error de sintaxis: falta ';' delante del identificador 'v'
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(279,9): error C2065: 'v': identificador no declarado
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(279,13): error C3861: 'Venta': no se encontró el identificador
-C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(290,12): error C2065: 'v': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(56,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Detalle.h(92,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(105,3): error C2065: 'Empleado': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(105,12): error C2146: error de sintaxis: falta ';' delante del identificador 'e'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(105,12): error C2065: 'e': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(105,16): error C3861: 'Empleado': no se encontró el identificador
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(106,3): error C2065: 'Cliente': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(106,11): error C2146: error de sintaxis: falta ';' delante del identificador 'c'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(106,11): error C2065: 'c': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(106,15): error C3861: 'Cliente': no se encontró el identificador
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(110,7): error C2065: 'e': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(114,10): error C2065: 'c': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(116,10): error C2065: 'c': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(117,7): error C2065: 'c': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(127,147): error C2065: 'c': identificador no declarado
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(281,1): warning C4311: 'conversión de tipo': truncamiento de puntero de 'char *' a 'int'
+C:\Users\Gabriela}\Desktop\UMGGABY\3er.semestre\Programacion 1\Proyectos_visualStudio\ProyectoFinal\ProyectoFinal\Venta.h(281,1): warning C4302: 'conversión de tipo': truncamiento de 'char *' a 'int'

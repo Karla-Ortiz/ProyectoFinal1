@@ -128,9 +128,25 @@ void moduloPuestos() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICACION PUESTOS\n" << endl;
+            cout << "\t-----------------------\n" << endl;
+            while (stop != 'n') {
+                p.modificarPuesto();
+                cout << "\n\n\n\tDesea modificar otro puestos (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINAR PUESTOS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                p.eliminarPuesto();
+                cout << "\n\n\n\tDesea eliminar otro puestos (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }
@@ -361,7 +377,7 @@ void moduloVentas() {
             cout << "\n\n\tINGRESO VENTAS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
-                
+                v.crearVenta();
                 cout << "\n\n\n\tDesea ingresar otra venta (SI = s / No = n): ";
                 cin >> stop;
             }
@@ -376,6 +392,7 @@ void moduloVentas() {
             cout << "\n\n\tMODIFICACION VENTAS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
+                v.modificarVenta();
                 cout << "\n\n\n\tDesea modificar otra venta (SI = s / No = n): ";
                 cin >> stop;
             }
@@ -386,7 +403,7 @@ void moduloVentas() {
             cout << "\n\n\tELIMINACION VENTAS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
-                //v.eliminarVenta();
+                v.eliminarVenta();
                 cout << "\n\n\n\tDesea eliminar otra venta (SI = s / No = n): ";
                 cin >> stop;
             }
