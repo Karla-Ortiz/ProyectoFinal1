@@ -79,6 +79,18 @@ public:
 					d.setIdOpe(fila[0]);
 					d.dataDetalle("ventas_detalle", "idventa", "idventa_detalle");
 				}
+				query = "SELECT idVenta, fechafactura, idcliente, idempleado where idVenta=" + idVenta;
+				const char* select = query.c_str();
+				q_estado = mysql_query(con.getConectar(), select);
+				if (!q_estado) {
+					res = mysql_store_result(con.getConectar());
+					while (fila = mysql_fetch_row(res)) {
+						idVenta = fila[0];
+						fechafac = fila[1];
+						cliente = fila[2];
+						empleado = fila[3];
+					}
+				}
 			}
 		}
 		else {
@@ -143,21 +155,42 @@ public:
 	}
 
 	void modificarVenta() {
+		Detalle d = Detalle();
 		int q_estado;
+		string dato;
 		cout << "\tIngrese el id de la venta que desea modificar: ";
 		cin >> idVenta;
 		visualizarVenta();
-		cin.ignore();
+		cout << "\n\tIngrese datos nuevos (si no desea cambiar un dato ingrese n)" << endl;
+		cout << "Ingrese fecha de factura (yyyy-MM-dd): ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			fechafac = dato;
+		}
 		cout << "\n\tIngrese nuevo id cliente: ";
-		getline(cin, marca);
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			cliente = dato;
+		}
+		cout << "Ingrese id de empleado: ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			empleado = dato;
+		}
+		
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "UPDATE MARCAS SET marca='" + marca + "' WHERE idmarca=" + id;
+			string query = "UPDATE VENTAS SET fechafactura='"+fechafac+"',idcliente="+cliente+"idempleado="+empleado+" WHERE idVenta=" + idVenta;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
 				cout << "\n\n\t --- Modificacion exitoso ---" << endl;
+				cout << "\n\n\tDesea modificar el detalle? (s=si / n=no) ";
+				cin >> dato;
+				if (dato.compare("s") == 0) {
+					d.menuDetalle('v', idVenta);
+				}
 			}
 			else {
 				cout << "\n\n\t --- Error al modificar la informacion ---" << endl;
@@ -169,12 +202,14 @@ public:
 		con.cerrarConexion();
 	}
 
-	/*void deleteVenta() {
+	void deleteVenta() {
+		Detalle d = Detalle();
+		d.deleteDetalleRel('v', idVenta);
 		int q_estado;
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "DELETE FROM MARCAS WHERE idmarca=" + id;
+			string query = "DELETE FROM VENTAS WHERE idmarca=" + idVenta;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
@@ -192,45 +227,18 @@ public:
 
 	void eliminarVenta() {
 		char conf;
-		cout << "\tIngrese el id de la marca a eliminar: ";
-		cin >> id;
-		visualizarMarca();
-		cout << "\n\tSeguro que desea eliminar el registro. Esta operacion no se puede revertir (SI = s / No = n): ";
+		cout << "\tIngrese el id de la venta a eliminar: ";
+		cin >> idVenta;
+		visualizarVenta();
+		cout << "\n\tSeguro que desea eliminar el registro. Se eliminara la venta junto con el detalle. Esta operacion no se puede revertir (SI = s / No = n): ";
 		cin >> conf;
 		if (conf == 's') {
-			deleteMarca();
+			deleteVenta();
 		}
 		else {
 			cout << "\n\tRegisto no eliminado" << endl;;
 		}
 	}
-
-	void visualizarMarca() {
-		int q_estado;
-		ConexionDB con = ConexionDB();
-		MYSQL_ROW fila;
-		MYSQL_RES* res;
-		con.abrirConexion();
-		if (con.getConectar()) {
-			string query = "SELECT * FROM MARCAS where IDMARCA=" + id;
-			const char* c = query.c_str();
-			q_estado = mysql_query(con.getConectar(), c);
-			if (!q_estado) {
-				res = mysql_store_result(con.getConectar());
-				cout << "\n\n\t**************** MARCAS *******************" << endl;
-				cout << "\tID    |  MARCA\n" << endl;
-				while (fila = mysql_fetch_row(res)) {
-					cout << "\t" << fila[0] << " | " << fila[1] << endl;
-					id = (string)fila[0];
-					marca = fila[1];
-				}
-			}
-		}
-		else {
-			cout << "\n\n\t -- Error en conexion --" << endl;
-		}
-		con.cerrarConexion();
-	}*/
 
 	string idVentaActual() {
 		string id = "";

@@ -188,6 +188,27 @@ public:
 		con.cerrarConexion();
 	}
 
+	boolean deleteDetalleRel(char operacion, string idOperacion) {
+		boolean del = false;
+		ConexionDB con = ConexionDB();
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "";
+			if (operacion == 'c') {
+				query = "DELETE FROM COMPRAS WHERE idcompra=" + idOperacion;
+			}
+			else {
+				query = "DELETE FROM VENTAS WHERE idventa=" + idOperacion;
+			}
+			const char* i = query.c_str();
+			mysql_query(con.getConectar(), i);
+		}
+		else {
+			cout << "\n\n\t --- Error en conexion ---" << endl;
+		}
+		con.cerrarConexion();
+	}
+
 	void pausa(string operacion)
 	{
 		cout << "\n\n\n\n\t\t\t\t\tPulsa una tecla para regresar " + operacion + "...";
