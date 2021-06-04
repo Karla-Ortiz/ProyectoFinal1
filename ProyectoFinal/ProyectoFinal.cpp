@@ -162,8 +162,9 @@ void moduloEmpleados() {
         opc = mostrarMenu("EMPLEADOS", "empleados");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO EMPLEADOS\n" << endl;
-            cout << "\t--------------------\n" << endl;
+            cout << "\t----------------------\n" << endl;
             while (stop != 'n') {
                 emp.crearEmpleado();
                 cout << "\n\n\n\tDesea ingresar otro empleado (SI = s / No = n): ";
@@ -176,9 +177,25 @@ void moduloEmpleados() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICAR EMPLEADOS\n" << endl;
+            cout << "\t------------------------\n" << endl;
+            while (stop != 'n') {
+                emp.modificarEmpleado();
+                cout << "\n\n\n\tDesea modificar otro empleado (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\ELIMINAR EMPLEADOS\n" << endl;
+            cout << "\t------------------------\n" << endl;
+            while (stop != 'n') {
+                emp.eliminarEmpleado();
+                cout << "\n\n\n\tDesea eliminar otro empleado (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }
