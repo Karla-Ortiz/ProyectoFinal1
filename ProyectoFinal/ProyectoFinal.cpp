@@ -9,6 +9,7 @@
 #include "Cliente.h"
 #include "Proveedor.h"
 #include "Venta.h"
+#include "Compra.h"
 #include <Windows.h>
 using namespace std;
 
@@ -446,6 +447,55 @@ void moduloVentas() {
         }
     }
     barra("VENTAS");
+}
+
+void moduloCompras() {
+    Compra c = Compra();
+    int opc = 0;
+    char stop;
+    while (opc != 5) {
+        opc = mostrarMenu("COMPRAS", "compras");
+        switch (opc) {
+        case 1: system("cls");
+            stop = 's';
+            cout << "\n\n\tINGRESO COMPRAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                c.crearCompra();
+                cout << "\n\n\n\tDesea ingresar otra compra (SI = s / No = n): ";
+                cin >> stop;
+            }
+            pausa();
+            break;
+        case 2: system("cls");
+            c.dataCompras();
+            pausa();
+            break;
+        case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\tMODIFICACION COMPRAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                c.modificarCompra();
+                cout << "\n\n\n\tDesea modificar otra compra (SI = s / No = n): ";
+                cin >> stop;
+            }
+            pausa();
+            break;
+        case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\tELIMINACION COMPRAS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                c.eliminarCompra();
+                cout << "\n\n\n\tDesea eliminar otra compra (SI = s / No = n): ";
+                cin >> stop;
+            }
+            pausa();
+            break;
+        }
+    }
+    barra("COMPRAS");
 }
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
 // Depurar programa: F5 o menú Depurar > Iniciar depuración

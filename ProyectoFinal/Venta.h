@@ -126,7 +126,7 @@ public:
 					ConexionDB con = ConexionDB();
 					con.abrirConexion();
 					if (con.getConectar()) {
-						string query = "INSERT INTO VENTAS(nofactura,serie,fechafactura,idcliente,idempleado,fechaingres) VALUES ("+nofac+",'"+serie+"',CURDATE(),"+c.getId()+","+empleado+",NOW())";
+						string query = "INSERT INTO VENTAS(nofactura,serie,fechafactura,idcliente,idempleado,fechaingreso) VALUES ("+nofac+",'"+serie+"',CURDATE(),"+c.getId()+","+empleado+",NOW())";
 						const char* i = query.c_str();
 						q_estado = mysql_query(con.getConectar(), i);
 						if (!q_estado) {
@@ -183,7 +183,7 @@ public:
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "UPDATE VENTAS SET fechafactura='"+fechafac+"',idcliente="+cliente+"idempleado="+empleado+" WHERE idVenta=" + idVenta;
+			string query = "UPDATE VENTAS SET fechafactura='"+fechafac+"',idcliente="+cliente+",idempleado="+empleado+" WHERE idVenta=" + idVenta;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
@@ -211,7 +211,7 @@ public:
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "DELETE FROM VENTAS WHERE idmarca=" + idVenta;
+			string query = "DELETE FROM VENTAS WHERE idVenta=" + idVenta;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
