@@ -37,9 +37,41 @@ public:
 			if (!q_estado) {
 				res = mysql_store_result(con.getConectar());
 				cout << "\n\n\t**************** PPODUCTOS *******************" << endl;
-				cout << "\tID    |  PRODUCTO  | MARCAR | DESCRIPCION  | PRECIO COSTO | PRECIO VENTA | EXISTENCIA | FECHA INGRESO\n" << endl;
+				cout << "\tID    |  PRODUCTO  | MARCA | DESCRIPCION  | PRECIO COSTO | PRECIO VENTA | EXISTENCIA | FECHA INGRESO\n" << endl;
 				while (fila = mysql_fetch_row(res)) {
 					cout << "\t" << fila[0] << " | " << fila[1] << " | " <<fila[2] << " | " <<fila[3] << " | " <<fila[4] << " | " <<fila[5] << " | " <<fila[6] << " | " <<fila[7] << endl;
+				}
+			}
+		}
+		else {
+			cout << "\n\n\t -- Error en conexion --" << endl;
+		}
+		con.cerrarConexion();
+	}
+
+	void visualizarProducto() {
+		int q_estado;
+		ConexionDB con = ConexionDB();
+		MYSQL_ROW fila;
+		MYSQL_RES* res;
+		con.abrirConexion();
+		if (con.getConectar()) {
+			string query = "SELECT * FROM PRODUCTOS idProducto=" + idProd;
+			const char* c = query.c_str();
+			q_estado = mysql_query(con.getConectar(), c);
+			if (!q_estado) {
+				res = mysql_store_result(con.getConectar());
+				cout << "\n\n\t**************** PPODUCTOS *******************" << endl;
+				cout << "\tID    |  PRODUCTO  | ID MARCA | DESCRIPCION  | PRECIO COSTO | PRECIO VENTA | EXISTENCIA | FECHA INGRESO\n" << endl;
+				while (fila = mysql_fetch_row(res)) {
+					cout << "\t" << fila[0] << " | " << fila[1] << " | " << fila[2] << " | " << fila[3] << " | " << fila[4] << " | " << fila[5] << " | " << fila[6] << " | " << fila[7] << endl;
+					idProd = fila[0];
+					prod = fila[1];
+					marca = fila[2];
+					desc = fila[3];
+					precioC = fila[4];
+					precioV = fila[5];
+					existencia = fila[6];
 				}
 			}
 		}
@@ -89,28 +121,67 @@ public:
 	}
 
 	void modificarProducto() {
+		Marca m = Marca();
 		int q_estado;
+		string dato;
+		cout << "\n\tIngrese el id del producto: ";
+		cin >> idProd;
+		visualizarProducto();
+		cin.ignore();
+		cout << "\n\tIngrese datos nuevos (si no desea cambiar un dato ingrese n)" << endl;
+		cout << "\tProducto: ";
+		getline(cin, dato);
+		if (dato.compare("n") != 0) {
+			prod = dato;
+		}
+		m.dataMarcas();
+		cout << "\tId Marca: ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			marca = dato;
+		}
+		cin.ignore();
+		cout << "\tDescripcion: ";
+		getline(cin, dato);
+		if (dato.compare("n") != 0) {
+			desc = dato;
+		}
+		cout << "\tPrecio costo: ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			precioC = dato;
+		}
+		cout << "\tPrecio venta: ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			precioV = dato;
+		}
+		cout << "\tExistencia: ";
+		cin >> dato;
+		if (dato.compare("n") != 0) {
+			existencia = dato;
+		}
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "UPDATE PRODUCTOS SET producto='" + prod + "',idMarca="+marca+",descripcion='"+desc+"',precio_costo="+precioC+",precio_venta="
-				+precioV+",exitencia="+existencia+",fecha_ingreso=NOW() WHERE idProducto=" + idProd;
+			string query = "UPDATE PRODUCTOS SET producto='" + prod + "',idMarca=" + marca + ",descripcion='" + desc + "',precio_costo=" + precioC + ",precio_venta="
+				+ precioV + ",exitencia=" + existencia + " WHERE idProducto=" + idProd;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Modificacion exitoso ---" << endl;
+				cout << "\n\n\t --- Modificacion exitoso ---" << endl;
 			}
 			else {
-				cout << " --- Error al modificar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al modificar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
 	}
 
-	void eliminarPrdocuto() {
+	void deleteProd() {
 		int q_estado;
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
@@ -119,16 +190,31 @@ public:
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
-				cout << " --- Eliminacion exitosa ---" << endl;
+				cout << "\n\n\t --- Eliminacion exitosa ---" << endl;
 			}
 			else {
-				cout << " --- Error al eliminar la informacion ---" << endl;
+				cout << "\n\n\t --- Error al eliminar la informacion ---" << endl;
 			}
 		}
 		else {
-			cout << " --- Error en conexion ---" << endl;
+			cout << "\n\n\t --- Error en conexion ---" << endl;
 		}
 		con.cerrarConexion();
+	}
+
+	void eliminarProducto() {
+		char conf;
+		cout << "\tIngrese el id del producto a eliminar: ";
+		cin >> idProd;
+		visualizarProducto();
+		cout << "\n\tSeguro que desea eliminar el registro. Esta operacion no se puede revertir (SI = s / No = n): ";
+		cin >> conf;
+		if (conf == 's') {
+			deleteProd();
+		}
+		else {
+			cout << "\n\tRegisto no eliminado" << endl;;
+		}
 	}
 };
 

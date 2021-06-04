@@ -211,6 +211,7 @@ void moduloProductos() {
         opc = mostrarMenu("PRODUCTOS","productos");
         switch (opc) {
         case 1: system("cls");
+            stop = 's';
             cout << "\n\n\tINGRESO PRODUCTOS\n" << endl;
             cout << "\t--------------------\n" << endl;
             while (stop != 'n') {
@@ -225,9 +226,25 @@ void moduloProductos() {
             pausa();
             break;
         case 3: system("cls");
+            stop = 's';
+            cout << "\n\n\MODIFICAR PRODUCTOS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                p.modificarProducto();
+                cout << "\n\n\n\tDesea modificar otro producto (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         case 4: system("cls");
+            stop = 's';
+            cout << "\n\n\ELIMINAR PRODUCTOS\n" << endl;
+            cout << "\t--------------------\n" << endl;
+            while (stop != 'n') {
+                p.eliminarProducto();
+                cout << "\n\n\n\tDesea eliminar otro producto (SI = s / No = n): ";
+                cin >> stop;
+            }
             pausa();
             break;
         }

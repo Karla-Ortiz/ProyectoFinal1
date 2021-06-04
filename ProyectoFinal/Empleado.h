@@ -1,6 +1,7 @@
 #pragma once
 #include "ConexionDB.h"
 #include "Persona.h"
+#include "Puesto.h"
 #include <string>
 class Empleado : Persona{
 
@@ -84,6 +85,7 @@ public:
 	}
 
 	void crearEmpleado() {
+		Puesto p = Puesto();
 		int q_estado;
 		cin.ignore();
 		cout << "\n\tIngrese nombres: ";
@@ -102,6 +104,7 @@ public:
 		cin >> telefono;
 		cout << "\tIngrese fecha de nacimiento (yyyy-MM-dd): ";
 		cin >> fechanac;
+		p.dataPuestos();
 		cout << "\tIngrese id puesto: ";
 		cin >> puesto;
 		cout << "\tIngrese correo electronico: ";
@@ -129,6 +132,7 @@ public:
 	}
 
 	void modificarEmpleado() {
+		Puesto p = Puesto();
 		int q_estado;
 		string dato;
 		cout << "\n\tIngrese id empleado: ";
@@ -174,6 +178,7 @@ public:
 		if (dato.compare("n") != 0) {
 			fechanac = dato;
 		}
+		p.dataPuestos();
 		cout << "\tId puesto: ";
 		cin >> dato;
 		if (dato.compare("n") != 0) {
