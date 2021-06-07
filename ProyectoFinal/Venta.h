@@ -133,6 +133,10 @@ public:
 							idVenta = idVentaActual();
 							d.menuDetalle('v', idVenta);
 							cout << "\n\n\t --- Ingreso exitoso ---" << endl;
+							crearFactura(nitc,c.getNombres(),c.getApellidos());
+							d.dataDetalle("ventas", "idventa", "idventa_detalle");
+							cout << "\n\t\t\tTOTAL:	Q." << d.getTotal() << endl;
+							cout << "\t\t\tGRACIAS POR SU COMPRA :)" << endl;
 						}
 						else {
 							cout << "\n\n\t --- Error al ingresar la informacion ---" << endl;
@@ -310,6 +314,14 @@ public:
 			valido = true;
 		}
 		return valido;
+	}
+
+	void crearFactura(string nit, string nombre, string apellidos) {
+		cout << "\n\n\n\n" << endl;
+		cout << "\t\t\t No. Factura		| " << serie << "-" << nofac << "	| Fecha: " << fechafac << endl;
+		cout << "\t\t\t Nit		| " << nit << endl;
+		cout << "\t\t\t Cliente		| " << nombre << " " << apellidos << endl;
+		cout << "\t\t\t Direccion		| Ciudad Guatemala" << endl;
 	}
 };
 

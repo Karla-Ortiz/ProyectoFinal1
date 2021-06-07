@@ -294,7 +294,7 @@ public:
 		}
 	}
 
-	int menuDetalle(char operacion, string id) {
+	void menuDetalle(char operacion, string id) {
 		int opc = 0;
 		char stop = 's';
 		idOpe = id;

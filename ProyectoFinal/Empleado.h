@@ -114,8 +114,8 @@ public:
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "INSERT INTO EMPLEADOS(nombres, apellidos,direccion,DPI,genero,telefono,fecha_nacimiento,puesto,correo_electronico,fecha_inicio_labores,fechaingreso) VALUES ('"
-				+ nombres + "','"+apellidos+"','"+direccion+"','"+dpi+"','"+genero+"','"+telefono+"','"+fechanac+"','"+puesto+"','"+email+"','"+fechainilab+"',NOW())";
+			string query = "INSERT INTO EMPLEADOS(nombres, apellidos,direccion,DPI,genero,telefono,fecha_nacimiento,idpuesto,correo_electronico,fecha_inicio_labores,fechaingreso) VALUES ('"
+				+ nombres + "','"+apellidos+"','"+direccion+"','"+dpi+"','"+genero+"','"+telefono+"','"+fechanac+"',"+puesto+",'"+email+"','"+fechainilab+"',NOW())";
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {
@@ -197,8 +197,8 @@ public:
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();
 		if (con.getConectar()) {
-			string query = "UPDATE EMPLEADOS SET nombres='" + nombres + "',apellidos='"+apellidos+"',direccion='"+direccion+"',DPI='"+dpi+"',genero="+genero+",telefono='"
-				+telefono+"',fecha_nacimiento='"+fechanac+"',puesto="+puesto+",correo_electronico='"+email+"',fecha_inicio_labores='"+fechainilab+"' WHERE idEmpleado=" + id;
+			string query = "UPDATE EMPLEADOS SET nombres='" + nombres + "',apellidos='"+apellidos+"',direccion='"+direccion+"',DPI='"+dpi+"',genero='"+genero+"',telefono='"
+				+telefono+"',fecha_nacimiento='"+fechanac+"',idpuesto="+puesto+",correo_electronico='"+email+"',fecha_inicio_labores='"+fechainilab+"' WHERE idEmpleado=" + id;
 			const char* i = query.c_str();
 			q_estado = mysql_query(con.getConectar(), i);
 			if (!q_estado) {

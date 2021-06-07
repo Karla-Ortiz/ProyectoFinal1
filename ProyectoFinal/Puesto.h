@@ -97,7 +97,7 @@ public:
 		cin >> id;
 		visualizarPuesto();
 		cin.ignore();
-		cout << "Ingrese puesto: ";
+		cout << "\tIngrese puesto: ";
 		getline(cin, puesto);
 		ConexionDB con = ConexionDB();
 		con.abrirConexion();

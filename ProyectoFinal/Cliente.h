@@ -24,6 +24,12 @@ public:
 	string getId() {
 		return id;
 	}
+	string getNombres() {
+		return nombres;
+	}
+	string getApellidos() {
+		return apellidos;
+	}
 
 	void dataClientes() {
 		int q_estado;
